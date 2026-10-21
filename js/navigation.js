@@ -17,13 +17,24 @@ function go(id, updateHash = true) {
   closeMenu();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+function setMenuIcon(open) {
+  $('#menuBtn').innerHTML = `<i data-lucide="${open ? 'x' : 'menu'}" class="w-6 h-6"></i>`;
+  $('#menuBtn').setAttribute('aria-label', open ? 'Đóng menu' : 'Mở menu');
+  icons();
+}
 function closeMenu() {
   $('#navMobile').classList.add('hidden');
   $('#menuBtn').setAttribute('aria-expanded', 'false');
+  setMenuIcon(false);
 }
 $('#menuBtn').addEventListener('click', () => {
   const m = $('#navMobile');
   const open = m.classList.toggle('hidden') === false;
   $('#menuBtn').setAttribute('aria-expanded', String(open));
+  setMenuIcon(open);
+});
+// Chạm ra ngoài vùng header thì đóng menu
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) closeMenu();
 });
 window.addEventListener('popstate', () => go(location.hash.replace('#', '') || 'home', false));

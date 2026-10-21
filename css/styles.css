@@ -51,3 +51,50 @@
   table.price-table th { background: #F3ECE1; color: #2D5A27; font-weight: 700; position: sticky; top: 0; }
   :focus-visible { outline: 3px solid #D9531E; outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* ================== RESPONSIVE / ĐIỆN THOẠI ================== */
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body { overflow-x: clip; -webkit-tap-highlight-color: transparent; }
+a, button, select, summary { touch-action: manipulation; }
+img, svg, video { max-width: 100%; }
+
+/* Nút nổi tránh thanh điều hướng / tai thỏ */
+#fab { bottom: calc(20px + env(safe-area-inset-bottom)); right: calc(12px + env(safe-area-inset-right)); }
+.toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
+
+/* Modal dùng chiều cao thực của màn hình điện thoại */
+.modal-back > div { max-height: 92vh; max-height: 92dvh; }
+
+@media (max-width: 767px) {
+  /* Header gọn hơn khi cuộn */
+  .header-border { height: 8px; background-size: 20px 8px; }
+  #navMobile { max-height: calc(100vh - 150px); max-height: calc(100dvh - 150px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  #navMobile .nav-btn { min-height: 48px; display: flex; align-items: center; }
+
+  /* Vùng chạm tối thiểu 44px */
+  .size-pill { min-height: 40px; padding-left: 16px; padding-right: 16px; }
+  #filterBar .pill, #newsTabs .pill { min-height: 44px; }
+  #modeRetail, #modeWholesale { min-height: 44px; }
+  [data-product] a[data-shop], [data-product] a[href^="https://zalo"] { min-height: 46px; }
+
+  /* Bộ lọc sản phẩm: một hàng cuộn ngang, dễ lướt bằng ngón tay */
+  #filterBar { flex-wrap: nowrap; overflow-x: auto; margin-left: -16px; margin-right: -16px; padding: 4px 16px 8px; scrollbar-width: none; }
+  #filterBar::-webkit-scrollbar { display: none; }
+  #filterBar .pill { flex: 0 0 auto; white-space: nowrap; }
+
+  /* Chế độ giá lẻ / sỉ chiếm trọn chiều ngang */
+  .inline-flex[role="tablist"] { display: flex; width: 100%; }
+  #modeRetail, #modeWholesale { flex: 1 1 0; justify-content: center; padding-left: 8px; padding-right: 8px; font-size: 13px; }
+
+  /* Bảng giá sỉ: bảng cuộn ngang, chữ nhỏ hơn */
+  table.price-table th, table.price-table td { padding: 8px 10px; font-size: 13px; }
+
+  /* Chừa chỗ cho nút nổi ở cuối trang */
+  footer { padding-bottom: 88px; }
+  h1 { word-break: break-word; }
+}
+
+@media (max-width: 380px) {
+  .logo-h { height: 56px; }
+  #fab a { width: 48px; height: 48px; }
+}
