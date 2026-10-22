@@ -1,100 +1,289 @@
-/* Tây Bắc Eco - kiểu giao diện tùy chỉnh (bổ sung cho Tailwind CSS) */
-  html { scroll-behavior: smooth; }
-  body { background: #FAF7F2; color: #4A453E; font-family: 'Be Vietnam Pro', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-  h1, h2, h3, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
-  .thocam-border {
-    height: 14px; width: 100%;
-    background-repeat: repeat-x; background-size: 32px 14px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='14' viewBox='0 0 32 14'%3E%3Crect width='32' height='14' fill='%236E473B'/%3E%3Cpath d='M8 1l6 6-6 6-6-6z' fill='%23D9531E'/%3E%3Cpath d='M8 4l3 3-3 3-3-3z' fill='%23FAF7F2'/%3E%3Cpath d='M24 1l6 6-6 6-6-6z' fill='%236BB34D'/%3E%3Cpath d='M24 4l3 3-3 3-3-3z' fill='%23FAF7F2'/%3E%3C/svg%3E");
-  }
-  .thocam-thin {
-    height: 8px; width: 100%;
-    background-repeat: repeat-x; background-size: 20px 8px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='8' viewBox='0 0 20 8'%3E%3Cpath d='M5 0l5 4-5 4-5-4z' fill='%23D9531E'/%3E%3Cpath d='M15 0l5 4-5 4-5-4z' fill='%236BB34D'/%3E%3C/svg%3E");
-  }
-  .logo-h { height: 68px; width: auto; display: block; }
-  .logo-f { height: 84px; width: auto; display: block; }
-  @media (min-width: 640px) { .logo-h { height: 88px; } .logo-f { height: 96px; } }
-  .page { display: none; }
-  .page.active { display: block; animation: fadeIn .35s ease; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-  .nav-btn { position: relative; transition: background .2s, color .2s; }
-  .nav-btn.active { background: #FAF7F2; color: #2D5A27; font-weight: 700; }
-  .btn-primary { background: #2D5A27; color: #fff; }
-  .btn-primary:hover { background: #244a1f; }
-  .draft-tag {
-    display: inline-block; font-size: 11px; font-weight: 600; line-height: 1.3;
-    background: #FFF1C9; color: #7a5a00; border: 1px dashed #d9a400;
-    border-radius: 6px; padding: 2px 8px;
-  }
-  .paper-card { background: #fff; border: 1px solid #E8DFD0; border-radius: 18px; box-shadow: 0 2px 10px rgba(110,71,59,.07); }
-  .pill { transition: all .2s; }
-  .pill.on { background: #2D5A27; color: #fff; border-color: #2D5A27; }
-  .size-pill.on { background: #6BB34D; color: #fff; border-color: #6BB34D; }
-  .toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%) translateY(20px); background: #1A1A1A; color: #fff; padding: 12px 18px; border-radius: 12px; font-size: 14px; opacity: 0; pointer-events: none; transition: all .3s; z-index: 80; max-width: 90vw; text-align: center; }
-  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-  .modal-back { position: fixed; inset: 0; background: rgba(26,26,26,.6); z-index: 70; display: none; align-items: center; justify-content: center; padding: 12px; }
-  .modal-back.open { display: flex; }
-  .art-bg-season { background: linear-gradient(135deg, #EAF4E1, #D4E8C4); }
-  .art-bg-year { background: linear-gradient(135deg, #F3E3D0, #E7CBAA); }
-  .art-bg-specialty { background: linear-gradient(135deg, #F6E6D8, #EBCFB8); }
-  .pulse-ring { animation: pulseRing 2s infinite; }
-  @keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(107,179,77,.55); } 70% { box-shadow: 0 0 0 14px rgba(107,179,77,0); } 100% { box-shadow: 0 0 0 0 rgba(107,179,77,0); } }
-  .hero-bg {
-    background:
-      radial-gradient(circle at 15% 20%, rgba(107,179,77,.28), transparent 45%),
-      radial-gradient(circle at 85% 80%, rgba(217,83,30,.14), transparent 40%),
-      linear-gradient(135deg, #F3ECE1, #FAF7F2);
-  }
-  .mountain { position: absolute; bottom: 0; left: 0; width: 100%; opacity: .9; }
-  table.price-table th, table.price-table td { padding: 10px 12px; text-align: left; font-size: 14px; border-bottom: 1px solid #EDE4D5; }
-  table.price-table th { background: #F3ECE1; color: #2D5A27; font-weight: 700; position: sticky; top: 0; }
-  :focus-visible { outline: 3px solid #D9531E; outline-offset: 2px; }
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+/* Tây Bắc Eco - kiểu giao diện tùy chỉnh (Artisanal & Modern Eco-Brand Design System) */
+html { scroll-behavior: smooth; }
+body {
+  background: #FAF7F2;
+  color: #4A453E;
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
 
-/* ================== RESPONSIVE / ĐIỆN THOẠI ================== */
-html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
-body { overflow-x: clip; -webkit-tap-highlight-color: transparent; }
-a, button, select, summary { touch-action: manipulation; }
-img, svg, video { max-width: 100%; }
-
-/* Nút nổi tránh thanh điều hướng / tai thỏ */
-#fab { bottom: calc(20px + env(safe-area-inset-bottom)); right: calc(12px + env(safe-area-inset-right)); }
-.toast { bottom: calc(96px + env(safe-area-inset-bottom)); }
-
-/* Modal dùng chiều cao thực của màn hình điện thoại */
-.modal-back > div { max-height: 92vh; max-height: 92dvh; }
-
-@media (max-width: 767px) {
-  /* Header gọn hơn khi cuộn */
-  .header-border { height: 8px; background-size: 20px 8px; }
-  #navMobile { max-height: calc(100vh - 150px); max-height: calc(100dvh - 150px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
-  #navMobile .nav-btn { min-height: 48px; display: flex; align-items: center; }
-
-  /* Vùng chạm tối thiểu 44px */
-  .size-pill { min-height: 40px; padding-left: 16px; padding-right: 16px; }
-  #filterBar .pill, #newsTabs .pill { min-height: 44px; }
-  #modeRetail, #modeWholesale { min-height: 44px; }
-  [data-product] a[data-shop], [data-product] a[href^="https://zalo"] { min-height: 46px; }
-
-  /* Bộ lọc sản phẩm: một hàng cuộn ngang, dễ lướt bằng ngón tay */
-  #filterBar { flex-wrap: nowrap; overflow-x: auto; margin-left: -16px; margin-right: -16px; padding: 4px 16px 8px; scrollbar-width: none; }
-  #filterBar::-webkit-scrollbar { display: none; }
-  #filterBar .pill { flex: 0 0 auto; white-space: nowrap; }
-
-  /* Chế độ giá lẻ / sỉ chiếm trọn chiều ngang */
-  .inline-flex[role="tablist"] { display: flex; width: 100%; }
-  #modeRetail, #modeWholesale { flex: 1 1 0; justify-content: center; padding-left: 8px; padding-right: 8px; font-size: 13px; }
-
-  /* Bảng giá sỉ: bảng cuộn ngang, chữ nhỏ hơn */
-  table.price-table th, table.price-table td { padding: 8px 10px; font-size: 13px; }
-
-  /* Chừa chỗ cho nút nổi ở cuối trang */
-  footer { padding-bottom: 88px; }
-  h1 { word-break: break-word; }
+/* Họa tiết thổ cẩm sắc nét, tinh tế (8px) */
+.thocam-border {
+  height: 8px;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-size: 24px 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='8' viewBox='0 0 24 8'%3E%3Crect width='24' height='8' fill='%236E473B'/%3E%3Cpath d='M6 0.8L9.2 4 6 7.2 2.8 4z' fill='%23D9531E'/%3E%3Cpath d='M6 2.3L7.7 4 6 5.7 4.3 4z' fill='%23FAF7F2'/%3E%3Cpath d='M18 0.8L21.2 4 18 7.2 14.8 4z' fill='%236BB34D'/%3E%3Cpath d='M18 2.3L19.7 4 18 5.7 16.3 4z' fill='%23FAF7F2'/%3E%3C/svg%3E");
+}
+.thocam-thin {
+  height: 6px;
+  width: 100%;
+  background-repeat: repeat-x;
+  background-size: 18px 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='6' viewBox='0 0 18 6'%3E%3Cpath d='M4.5 0L8 3 4.5 6 1 3z' fill='%23D9531E' opacity='.85'/%3E%3Cpath d='M13.5 0L17 3 13.5 6 10 3z' fill='%236BB34D' opacity='.85'/%3E%3C/svg%3E");
 }
 
-@media (max-width: 380px) {
-  .logo-h { height: 56px; }
-  #fab a { width: 48px; height: 48px; }
+/* Smart Header & Logo thu gọn thông minh khi cuộn */
+.smart-header {
+  transition: box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.smart-header .header-top {
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: padding 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.28s ease;
+}
+.logo-h {
+  height: 54px;
+  width: auto;
+  display: block;
+  transition: height 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s ease;
+}
+.logo-f { height: 80px; width: auto; display: block; }
+@media (min-width: 640px) {
+  .logo-h { height: 64px; }
+  .logo-f { height: 92px; }
+}
+.smart-header.scrolled {
+  box-shadow: 0 10px 28px -8px rgba(26, 26, 26, 0.16);
+}
+.smart-header.scrolled .logo-h {
+  height: 46px;
+}
+@media (min-width: 640px) {
+  .smart-header.scrolled .logo-h {
+    height: 52px;
+  }
+}
+.smart-header.scrolled .header-top-inner {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* Chuyển trang mượt mà */
+.page { display: none; }
+.page.active { display: block; animation: fadeIn .35s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Nút điều hướng */
+.nav-btn { position: relative; transition: all .22s ease; }
+.nav-btn.active { background: #FAF7F2; color: #2D5A27; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.btn-primary {
+  background: linear-gradient(135deg, #2D5A27, #23491E);
+  color: #fff;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #244a1f, #1b3817);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -4px rgba(45, 90, 39, 0.35);
+}
+
+/* Nhãn nội dung đề xuất */
+.draft-tag {
+  display: inline-block; font-size: 11px; font-weight: 600; line-height: 1.3;
+  background: #FFF1C9; color: #7a5a00; border: 1px dashed #d9a400;
+  border-radius: 6px; padding: 2px 8px;
+}
+
+/* Hệ thống Paper Card & Micro-interactions */
+.paper-card {
+  background: #fff;
+  border: 1px solid #E8DFD0;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(110, 71, 59, .06);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.paper-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -8px rgba(45, 90, 39, 0.12), 0 4px 10px -2px rgba(110, 71, 59, 0.08);
+  border-color: rgba(107, 179, 77, 0.48);
+}
+
+/* Nhãn tiết kiệm % giá sỉ nổi bật */
+.badge-discount {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #FFF3E0, #FFE4CC);
+  color: #C2410C;
+  border: 1px solid rgba(217, 83, 30, 0.35);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 6px rgba(217, 83, 30, 0.1);
+}
+
+/* Pills & bộ lọc */
+.pill { transition: all .2s cubic-bezier(0.16, 1, 0.3, 1); }
+.pill.on { background: #2D5A27; color: #fff; border-color: #2D5A27; box-shadow: 0 4px 12px rgba(45, 90, 39, 0.22); }
+.size-pill.on { background: #2D5A27; color: #fff; border-color: #2D5A27; }
+
+/* Toast & Modal */
+.toast {
+  position: fixed; left: 50%; bottom: 96px;
+  transform: translateX(-50%) translateY(20px);
+  background: #1A1A1A; color: #fff;
+  padding: 12px 20px; border-radius: 12px; font-size: 14px;
+  opacity: 0; pointer-events: none; transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 90; max-width: 92vw; text-align: center;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.modal-back {
+  position: fixed; inset: 0;
+  background: rgba(26, 26, 26, .62);
+  backdrop-filter: blur(4px);
+  z-index: 70; display: none;
+  align-items: center; justify-content: center; padding: 12px;
+}
+.modal-back.open { display: flex; animation: fadeIn .22s ease; }
+
+/* Mobile Slide-over Drawer */
+.drawer-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(26, 26, 26, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 65;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+.drawer-backdrop.open {
+  opacity: 1; pointer-events: auto;
+}
+.mobile-drawer {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: min(86vw, 340px);
+  background: #2D5A27;
+  color: #FAF7F2;
+  z-index: 68;
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex; flex-direction: column;
+  box-shadow: -12px 0 32px rgba(0, 0, 0, 0.28);
+}
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+/* Nền thẻ sản phẩm theo nhóm */
+.art-bg-season {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(107, 179, 77, 0.25), transparent 55%),
+    linear-gradient(135deg, #EAF4E1, #D4E8C4);
+}
+.art-bg-year {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(110, 71, 59, 0.16), transparent 55%),
+    linear-gradient(135deg, #F5E8D6, #E7CBAA);
+}
+.art-bg-specialty {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(217, 83, 30, 0.16), transparent 55%),
+    linear-gradient(135deg, #F8E8DA, #EBCFB8);
+}
+
+/* Hiệu ứng sóng lan tỏa & thẻ nổi */
+.pulse-ring { animation: pulseRing 2.2s infinite; }
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(107, 179, 77, .55); }
+  70% { box-shadow: 0 0 0 14px rgba(107, 179, 77, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(107, 179, 77, 0); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+.float-card { animation: floatSlow 4.5s ease-in-out infinite; }
+.float-card-delay { animation: floatSlow 5.2s ease-in-out 1.2s infinite; }
+.float-card-delay2 { animation: floatSlow 4.8s ease-in-out 2.2s infinite; }
+
+/* Nền Hero & Khối CTA vân giấy dó / thổ cẩm chìm nhẹ */
+.hero-bg {
+  background-color: #FAF7F2;
+  background-image:
+    radial-gradient(circle at 14% 20%, rgba(107, 179, 77, .24), transparent 44%),
+    radial-gradient(circle at 86% 76%, rgba(217, 83, 30, .14), transparent 42%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%236E473B' stroke-width='0.6' opacity='0.055'%3E%3Cpath d='M24 4L44 24 24 44 4 24z'/%3E%3Cpath d='M24 12L36 24 24 36 12 24z'/%3E%3Ccircle cx='24' cy='24' r='2' fill='%232D5A27'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(135deg, #F3ECE1, #FAF7F2);
+}
+.cta-pattern-bg {
+  background-color: #2D5A27;
+  background-image:
+    radial-gradient(circle at 90% 15%, rgba(107, 179, 77, 0.28), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(217, 83, 30, 0.2), transparent 45%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23FAF7F2' stroke-width='0.75' opacity='0.06'%3E%3Cpath d='M28 4L52 28 28 52 4 28z'/%3E%3Cpath d='M28 14L42 28 28 42 14 28z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.mountain { position: absolute; bottom: 0; left: 0; width: 100%; opacity: .92; pointer-events: none; }
+
+/* Bảng giá sỉ */
+table.price-table th, table.price-table td { padding: 11px 14px; text-align: left; font-size: 14px; border-bottom: 1px solid #EDE4D5; }
+table.price-table th { background: #F3ECE1; color: #2D5A27; font-weight: 700; position: sticky; top: 0; z-index: 5; }
+table.price-table tbody tr:hover { background: #FAF7F2; }
+
+/* Con dấu OCOP huy chương vàng-đồng */
+.ocop-medal {
+  background: radial-gradient(circle at 32% 30%, #FFFDF7, #F6E6C2 62%, #E2C178 100%);
+  border: 4px double #B87D28;
+  box-shadow: 0 10px 25px -5px rgba(184, 125, 40, 0.32), inset 0 0 14px rgba(255, 255, 255, 0.8);
+}
+
+/* Đường nối tiến trình 6 bước Eco */
+@media (min-width: 1024px) {
+  .step-card-connector::after {
+    content: '';
+    position: absolute;
+    top: 38px;
+    right: -22px;
+    width: 22px;
+    height: 2px;
+    background: repeating-linear-gradient(to right, #6BB34D 0, #6BB34D 4px, transparent 4px, transparent 8px);
+    z-index: 1;
+  }
+  .step-card-connector:nth-child(3n)::after {
+    display: none;
+  }
+}
+
+:focus-visible { outline: 3px solid #D9531E; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Chế độ In / Lưu PDF Bảng báo giá sỉ */
+@media print {
+  body * { visibility: hidden !important; }
+  #wsModal, #wsModal * { visibility: visible !important; }
+  #wsModal {
+    position: static !important;
+    display: block !important;
+    background: #fff !important;
+    padding: 0 !important;
+    inset: auto !important;
+  }
+  #wsModal > div {
+    max-width: 100% !important;
+    max-height: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+  #wsModal .overflow-auto, #wsModal .overflow-x-auto {
+    overflow: visible !important;
+  }
+  .no-print { display: none !important; }
+  table.price-table { min-width: 100% !important; border-collapse: collapse !important; }
+  table.price-table th, table.price-table td {
+    border: 1px solid #ccc !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    color: #000 !important;
+  }
+  table.price-table th { background: #f0f0f0 !important; position: static !important; }
 }

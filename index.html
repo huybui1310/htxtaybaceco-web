@@ -2,9 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#2D5A27">
-<meta name="mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tây Bắc Eco – Hợp tác xã Tây Bắc Eco | Tỏi Gia Phù, Sơn La</title>
 <meta name="description" content="Hợp tác xã Tây Bắc Eco – Bản Bùa Thượng, xã Gia Phù, tỉnh Sơn La. Miến tỏi đen, tỏi cô đơn, tỏi nhánh và đặc sản Tây Bắc đạt chứng nhận OCOP.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,100 +29,298 @@
 </svg>
 
 <!-- Banner sự kiện -->
-<div class="bg-thocam text-white text-center text-[13px] sm:text-sm font-medium px-3 py-2 flex items-center justify-center gap-2">
+<div class="bg-thocam text-white text-center text-[12.5px] sm:text-sm font-medium px-3 py-2 flex items-center justify-center gap-2 relative z-40">
   <i data-lucide="megaphone" class="w-4 h-4 shrink-0"></i>
   <span>Chào đón gian hàng Hợp tác xã Tây Bắc Eco tại Hội chợ OCOP tháng 11/2026</span>
 </div>
 
-<!-- Header -->
-<header class="sticky top-0 z-50 shadow-md">
-  <div class="bg-cream">
-    <div class="max-w-7xl mx-auto px-4 py-1.5 flex items-center justify-between gap-3">
-      <a href="#home" data-go="home" class="flex items-center" aria-label="Tây Bắc Eco - Trang chủ">
+<!-- Smart Header -->
+<header class="smart-header sticky top-0 z-50 shadow-sm">
+  <div class="header-top border-b border-[#E8DFD0]/70">
+    <div class="header-top-inner max-w-7xl mx-auto px-4 py-1.5 flex items-center justify-between gap-3">
+      <a href="#home" data-go="home" class="flex items-center gap-3 group" aria-label="Tây Bắc Eco - Trang chủ">
         <img src="assets/logo.svg" alt="Logo TÂY BẮC ECO" class="logo-h">
+        <div class="hidden sm:block border-l border-[#D8CCB6] pl-3">
+          <p class="text-[11px] font-extrabold uppercase tracking-wider text-forest leading-tight">Hợp tác xã Tây Bắc Eco</p>
+          <p class="text-xs text-bark leading-tight mt-0.5">Bản Bùa Thượng · Gia Phù · Sơn La</p>
+        </div>
       </a>
-      <div class="hidden md:flex items-center gap-2">
-        <a href="tel:0904836616" class="flex items-center gap-2 text-forest font-semibold text-sm px-3 py-2 rounded-full border border-forest/30 hover:bg-paper">
-          <i data-lucide="phone" class="w-4 h-4"></i> 0904 836 616
+      <div class="hidden md:flex items-center gap-2.5">
+        <a href="tel:0904836616" class="flex items-center gap-2 text-forest font-bold text-sm px-3.5 py-2 rounded-full border border-forest/30 bg-white/80 hover:bg-paper transition">
+          <i data-lucide="phone-call" class="w-4 h-4 text-eco"></i> 0904 836 616
         </a>
-        <button data-action="open-wholesale" class="flex items-center gap-2 btn-primary text-sm font-semibold px-4 py-2 rounded-full">
+        <button data-action="open-wholesale" class="flex items-center gap-2 btn-primary text-sm font-bold px-4 py-2 rounded-full shadow-sm">
           <i data-lucide="store" class="w-4 h-4"></i> Bảng giá sỉ
         </button>
       </div>
-      <button id="menuBtn" class="md:hidden p-2.5 rounded-lg bg-forest text-white" aria-label="Mở menu" aria-expanded="false">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
+      <div class="flex md:hidden items-center gap-2">
+        <button data-action="open-wholesale" class="text-xs font-bold text-forest bg-paper border border-forest/30 px-3 py-2 rounded-full flex items-center gap-1">
+          <i data-lucide="store" class="w-3.5 h-3.5"></i> Giá sỉ
+        </button>
+        <button id="menuBtn" class="p-2 rounded-xl bg-forest text-white shadow-sm" aria-label="Mở menu" aria-expanded="false">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
     </div>
   </div>
   <nav class="bg-forest" aria-label="Menu chính">
     <div class="max-w-7xl mx-auto">
-      <ul id="navList" class="hidden md:flex flex-wrap justify-center gap-1 px-3 py-1.5 text-cream text-[13.5px]">
-      </ul>
+      <ul id="navList" class="hidden md:flex flex-wrap justify-center gap-1 px-3 py-1.5 text-cream text-[13.5px]"></ul>
     </div>
-    <ul id="navMobile" class="md:hidden hidden px-3 pb-3 pt-1 text-cream text-[15px] grid gap-1"></ul>
   </nav>
-  <div class="thocam-border header-border"></div>
+  <div class="thocam-border"></div>
 </header>
+
+<!-- Slide-over Drawer Menu Di Động -->
+<div id="drawerBackdrop" class="drawer-backdrop md:hidden" aria-hidden="true"></div>
+<aside id="mobileDrawer" class="mobile-drawer md:hidden" aria-label="Menu di động" aria-hidden="true">
+  <div class="p-4 border-b border-white/15 flex items-center justify-between gap-2 bg-[#23491E]">
+    <div class="flex items-center gap-2.5">
+      <div class="bg-cream rounded-xl px-2.5 py-1.5">
+        <img src="assets/logo.svg" alt="Logo TÂY BẮC ECO" class="h-9 w-auto">
+      </div>
+      <div>
+        <p class="font-bold text-sm text-white leading-tight">Tây Bắc Eco</p>
+        <p class="text-[11px] text-cream/75">Tỏi Gia Phù · Sơn La</p>
+      </div>
+    </div>
+    <button id="closeDrawerBtn" class="p-2 rounded-lg bg-white/10 text-white hover:bg-white/20" aria-label="Đóng menu">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+  </div>
+  <div class="thocam-border"></div>
+  <div class="p-3 flex-1 overflow-y-auto">
+    <p class="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-eco">Danh mục trang</p>
+    <ul id="navMobile" class="text-cream text-[15px] grid gap-1 mt-1"></ul>
+  </div>
+  <div class="p-4 border-t border-white/15 bg-[#23491E] space-y-2.5">
+    <button data-action="open-wholesale" class="w-full bg-thocam hover:opacity-95 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md">
+      <i data-lucide="store" class="w-4 h-4"></i> Xem Bảng Giá Sỉ Đại Lý
+    </button>
+    <div class="grid grid-cols-2 gap-2">
+      <a href="tel:0904836616" class="bg-white/12 hover:bg-white/20 text-white font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs">
+        <i data-lucide="phone-call" class="w-4 h-4 text-eco"></i> 0904 836 616
+      </a>
+      <a href="https://zalo.me/0904836616" target="_blank" rel="noopener" class="bg-[#0068FF] text-white font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs">
+        <svg class="w-4 h-4"><use href="#zalo"/></svg> Chat Zalo
+      </a>
+    </div>
+  </div>
+</aside>
 
 <main>
 
 <!-- ============ 1. TRANG CHỦ ============ -->
 <section id="page-home" class="page" data-title="Trang chủ">
   <div class="hero-bg relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 pt-10 pb-24 lg:pt-16 lg:pb-32 grid lg:grid-cols-2 gap-10 items-center relative z-10">
-      <div>
-        <span class="inline-flex items-center gap-2 bg-white/80 border border-eco/40 text-forest text-xs font-bold px-3 py-1.5 rounded-full">
-          <i data-lucide="leaf" class="w-4 h-4 text-eco"></i> Sinh thái xanh sạch · Bản Bùa Thượng, Gia Phù
+    <div class="max-w-7xl mx-auto px-4 pt-8 pb-24 lg:pt-14 lg:pb-28 grid lg:grid-cols-12 gap-10 items-center relative z-10">
+      <!-- Cột Nội dung Hero (7 cột) -->
+      <div class="lg:col-span-7">
+        <span class="inline-flex items-center gap-2 bg-white/90 border border-eco/45 text-forest text-xs font-bold px-3.5 py-1.5 rounded-full shadow-sm">
+          <i data-lucide="leaf" class="w-4 h-4 text-eco"></i> Sinh thái xanh sạch · Bản Bùa Thượng, Gia Phù, Sơn La
         </span>
-        <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink leading-[1.12]">
+        <h1 class="mt-4 text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-ink leading-[1.12] tracking-tight">
           Hương tỏi <span class="text-forest">bản làng</span>,<br>
           vị ngon <span class="text-thocam">Tây Bắc</span>
         </h1>
-        <p class="mt-5 text-lg text-bark max-w-xl leading-relaxed">
+        <p class="mt-5 text-base sm:text-lg text-bark max-w-xl leading-relaxed">
           Hợp tác xã Tây Bắc Eco đưa cây tỏi bản địa Gia Phù – Sơn La từ nương đồi vùng cao đến bữa cơm gia đình bạn: tỏi cô đơn, tỏi nhánh, miến tỏi đen và những đặc sản đậm vị núi rừng.
         </p>
-        <div class="mt-7 flex flex-wrap gap-3">
-          <button data-go="products" class="btn-primary px-6 py-3.5 rounded-full font-bold flex items-center gap-2 shadow-lg">
-            <i data-lucide="shopping-basket" class="w-5 h-5"></i> Xem sản phẩm
+        <div class="mt-7 flex flex-wrap gap-3.5">
+          <button data-go="products" class="btn-primary px-6 py-3.5 rounded-full font-bold flex items-center gap-2 shadow-lg text-base">
+            <i data-lucide="shopping-basket" class="w-5 h-5"></i> Xem 20 sản phẩm
           </button>
-          <button data-action="open-wholesale" class="bg-white border-2 border-forest text-forest px-6 py-3.5 rounded-full font-bold flex items-center gap-2 hover:bg-paper">
+          <button data-action="open-wholesale" class="bg-white border-2 border-forest text-forest px-6 py-3.5 rounded-full font-bold flex items-center gap-2 hover:bg-paper transition shadow-sm text-base">
             <i data-lucide="store" class="w-5 h-5"></i> Nhập sỉ / Đại lý
           </button>
         </div>
-        <div class="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-bark">
+        <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2.5 text-sm font-medium text-bark">
           <span class="flex items-center gap-2"><i data-lucide="badge-check" class="w-5 h-5 text-eco"></i> Đạt chứng nhận OCOP</span>
-          <span class="flex items-center gap-2"><i data-lucide="sprout" class="w-5 h-5 text-eco"></i> Canh tác Eco</span>
+          <span class="flex items-center gap-2"><i data-lucide="sprout" class="w-5 h-5 text-eco"></i> Canh tác sinh thái Eco</span>
           <span class="flex items-center gap-2"><i data-lucide="qr-code" class="w-5 h-5 text-eco"></i> Truy xuất nguồn gốc</span>
         </div>
       </div>
-      <div class="relative flex justify-center">
-        <div class="relative w-72 h-72 sm:w-96 sm:h-96">
-          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-eco/30 to-thocam/20"></div>
-          <div class="absolute inset-6 rounded-full bg-white shadow-2xl flex items-center justify-center overflow-hidden border-8 border-paper">
-            <svg viewBox="0 0 120 120" class="w-56 h-56 sm:w-72 sm:h-72">
-              <g transform="translate(20 18)">
-                <path d="M40 4c3 9 1 14 0 17 14 5 30 18 30 40 0 16-14 24-30 24S10 77 10 61c0-22 16-35 30-40-1-3-3-8 0-17z" fill="#F8F1E4" stroke="#C9B896" stroke-width="2"/>
-                <path d="M40 21c-8 13-11 33-6 64M40 21c8 13 11 33 6 64M40 21c-1 20 0 45 0 64" stroke="#D9C9A8" stroke-width="2" fill="none"/>
-              </g>
-              <g transform="translate(66 62) scale(.55)">
-                <path d="M40 4c3 9 1 14 0 17 14 5 30 18 30 40 0 16-14 24-30 24S10 77 10 61c0-22 16-35 30-40-1-3-3-8 0-17z" fill="#2B2118"/>
-                <path d="M40 21c-8 13-11 33-6 64M40 21c8 13 11 33 6 64" stroke="#4a3a2c" stroke-width="2.5" fill="none"/>
-              </g>
-              <path d="M12 98c8-10 14-4 22-12" stroke="#6BB34D" stroke-width="3" fill="none" stroke-linecap="round"/>
-              <path d="M10 100c0-9 6-13 14-13-.5 8-5 13-14 13z" fill="#6BB34D"/>
-            </svg>
+
+      <!-- Cột phải: Tổ hợp Visual Đa Tầng (Layered Artisanal Showcase - 5 cột) -->
+      <div class="lg:col-span-5 relative flex justify-center">
+        <div class="relative w-full max-w-[390px] sm:max-w-[430px] py-4">
+          <!-- Vòng sáng sinh thái nền -->
+          <div class="
+            absolute inset-4 rounded-[36px] bg-gradient-to-br from-eco/30 via-paper to-thocam/20 blur-md -z-10
+          "></div>
+
+          <!-- Khung Artisanal Showcase Chính -->
+          <div class="relative rounded-[28px] bg-white/95 border-2 border-[#E5DAC8] shadow-2xl p-5 sm:p-6 overflow-hidden">
+            <!-- Dải thổ cẩm mảnh trên đỉnh hộp -->
+            <div class="thocam-thin -mx-6 -mt-6 mb-4"></div>
+
+            <div class="flex items-center justify-between gap-2 text-xs">
+              <span class="font-extrabold uppercase tracking-wider text-forest flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-eco"></i> Tinh hoa Nông sản Sơn La
+              </span>
+              <span class="bg-paper text-wood font-bold px-2.5 py-0.5 rounded-full text-[11px]">Vụ mùa 2026</span>
+            </div>
+
+            <!-- Tranh SVG Đa tầng: Núi rừng Gia Phù + Bao bì Miến Tỏi Đen + Tỏi Cô Đơn & Tỏi Đen -->
+            <div class="mt-3 rounded-2xl bg-gradient-to-b from-[#EAF4E1] via-[#F5EFE4] to-[#E9DEC9] p-3 relative overflow-hidden border border-[#E2D6C1]">
+              <svg viewBox="0 0 320 220" class="w-full h-auto block" role="img" aria-label="Minh họa bộ sản phẩm chủ lực Hợp tác xã Tây Bắc Eco">
+                <defs>
+                  <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#E5F2DA"/>
+                    <stop offset="100%" stop-color="#FAF7F2"/>
+                  </linearGradient>
+                  <linearGradient id="packGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2D5A27"/>
+                    <stop offset="100%" stop-color="#1D3E19"/>
+                  </linearGradient>
+                  <linearGradient id="bulbGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FFFDF9"/>
+                    <stop offset="100%" stop-color="#EBDCC3"/>
+                  </linearGradient>
+                  <linearGradient id="blackBulbGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#3A2D24"/>
+                    <stop offset="100%" stop-color="#18120E"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Mặt trời & Mây vùng cao -->
+                <circle cx="265" cy="40" r="22" fill="#F7D794" opacity="0.65"/>
+                <path d="M30 42H70M45 50H82" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+
+                <!-- Dãy núi Tây Bắc trùng điệp -->
+                <path d="M0 145L55 95L105 130L165 78L230 128L275 96L320 132V220H0Z" fill="#9CC884" opacity="0.45"/>
+                <path d="M0 165L75 122L135 152L205 108L265 148L320 125V220H0Z" fill="#6BB34D" opacity="0.45"/>
+
+                <!-- Lá tỏi tươi trang trí phía sau -->
+                <path d="M62 150C40 120 32 90 42 64C54 88 64 116 76 146" fill="#6BB34D" opacity="0.85"/>
+                <path d="M254 152C276 122 284 94 274 68C262 90 250 118 240 148" fill="#2D5A27" opacity="0.8"/>
+
+                <!-- Hộp sản phẩm chủ lực: MIẾN TỎI ĐEN TÂY BẮC ECO -->
+                <g transform="translate(88 26)">
+                  <rect x="0" y="0" width="118" height="156" rx="12" fill="url(#packGrad)" stroke="#FAF7F2" stroke-width="2"/>
+                  <rect x="8" y="8" width="102" height="140" rx="8" fill="none" stroke="#6BB34D" stroke-opacity="0.45" stroke-width="1"/>
+                  <!-- Nhãn kem giữa hộp -->
+                  <rect x="12" y="24" width="94" height="68" rx="6" fill="#FAF7F2"/>
+                  <text x="59" y="40" text-anchor="middle" font-size="7.5" font-weight="800" fill="#6BB34D" font-family="Be Vietnam Pro, sans-serif">TÂY BẮC ECO</text>
+                  <text x="59" y="55" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1A1A" font-family="Playfair Display, Georgia, serif">MIẾN TỎI ĐEN</text>
+                  <text x="59" y="68" text-anchor="middle" font-size="6.8" font-weight="600" fill="#6E473B" font-family="Be Vietnam Pro, sans-serif">Tỏi đen lên men tự nhiên</text>
+                  <rect x="33" y="75" width="52" height="11" rx="5.5" fill="#D9531E"/>
+                  <text x="59" y="82.8" text-anchor="middle" font-size="6.2" font-weight="700" fill="#FFFFFF" font-family="Be Vietnam Pro, sans-serif">HỘP 500G · OCOP</text>
+                  <!-- Cửa sổ nhìn thấy sợi miến tỏi đen -->
+                  <circle cx="59" cy="120" r="20" fill="#2A1E17" stroke="#E2C178" stroke-width="1.5"/>
+                  <path d="M45 116C52 110 66 110 73 116M43 122C52 116 66 116 75 122M46 128C54 123 64 123 72 128" stroke="#6E4E3A" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                </g>
+
+                <!-- Củ Tỏi Cô Đơn Gia Phù (bên trái) -->
+                <g transform="translate(28 96)">
+                  <path d="M44 10C47 19 45 24 44 27C60 32 74 45 74 64C74 80 60 88 44 88C28 88 14 80 14 64C14 45 28 32 44 27C43 24 41 19 44 10Z" fill="url(#bulbGrad)" stroke="#BCA279" stroke-width="2"/>
+                  <path d="M44 27C34 39 31 59 36 86M44 27C54 39 57 59 52 86M44 27V87" stroke="#D9C5A3" stroke-width="1.5" fill="none"/>
+                  <path d="M36 88L34 94M44 89L44 96M52 88L54 94" stroke="#A68B60" stroke-width="1.5" stroke-linecap="round"/>
+                </g>
+
+                <!-- Củ Tỏi Đen Cô Đơn lên men (bên phải) -->
+                <g transform="translate(186 104)">
+                  <path d="M40 12C43 20 41 24 40 27C55 32 67 44 67 61C67 76 55 83 40 83C25 83 13 76 13 61C13 44 25 32 40 27C39 24 37 20 40 12Z" fill="url(#blackBulbGrad)" stroke="#5A4634" stroke-width="2"/>
+                  <path d="M40 27C31 38 28 56 33 81M40 27C49 38 52 56 47 81" stroke="#4E3B2D" stroke-width="1.5" fill="none"/>
+                  <ellipse cx="31" cy="52" rx="4.5" ry="9" transform="rotate(-16 31 52)" fill="#FFFFFF" fill-opacity="0.18"/>
+                </g>
+
+                <!-- Mặt bàn gỗ ấm -->
+                <rect x="0" y="186" width="320" height="34" fill="#6E473B" opacity="0.18"/>
+              </svg>
+            </div>
+
+            <!-- Chú thích nhỏ dưới khung -->
+            <div class="mt-3 flex items-center justify-between text-[11px] text-bark">
+              <span class="flex items-center gap-1 font-semibold text-forest"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-thocam"></i> Bản Bùa Thượng, Gia Phù</span>
+              <span class="flex items-center gap-1"><i data-lucide="camera" class="w-3.5 h-3.5 text-thocam"></i> Minh họa bộ sản phẩm HTX</span>
+            </div>
           </div>
-          <div class="absolute -top-2 -right-2 sm:right-0 bg-thocam text-white text-xs font-bold px-3 py-2 rounded-2xl shadow-lg rotate-6">Miến tỏi đen<br><span class="font-medium">Sản phẩm chủ lực</span></div>
-          <div class="absolute -bottom-3 left-0 bg-white border-2 border-eco text-forest text-xs font-bold px-3 py-2 rounded-2xl shadow-lg -rotate-3 flex items-center gap-1.5"><i data-lucide="award" class="w-4 h-4 text-thocam"></i> OCOP</div>
+
+          <!-- Thẻ nổi 1: Miến tỏi đen - Sản phẩm chủ lực (110.000đ/hộp) -->
+          <div data-action="open-product" data-product-id="mien-toi-den" class="float-card cursor-pointer sm:absolute sm:-top-3 sm:-right-4 mt-3 sm:mt-0 bg-white/95 backdrop-blur-md border border-thocam/35 rounded-2xl px-3.5 py-2.5 shadow-glass flex items-center gap-2.5 hover:border-thocam transition">
+            <div class="w-9 h-9 rounded-xl bg-thocam text-white flex items-center justify-center shrink-0">
+              <i data-lucide="flame" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-thocam block">Sản phẩm chủ lực</span>
+              <p class="text-xs font-extrabold text-ink leading-tight">Miến tỏi đen · <span class="text-thocam">110.000đ/hộp</span></p>
+            </div>
+          </div>
+
+          <!-- Thẻ nổi 2: Chứng nhận OCOP - Bản Bùa Thượng, Gia Phù, Sơn La -->
+          <div data-go="certs" class="float-card-delay cursor-pointer sm:absolute sm:top-1/2 sm:-left-6 mt-2.5 sm:mt-0 bg-white/95 backdrop-blur-md border border-eco/45 rounded-2xl px-3.5 py-2.5 shadow-glass flex items-center gap-2.5 hover:border-forest transition">
+            <div class="w-9 h-9 rounded-xl bg-eco/20 text-forest flex items-center justify-center shrink-0">
+              <i data-lucide="award" class="w-5 h-5 text-thocam"></i>
+            </div>
+            <div>
+              <p class="text-xs font-extrabold text-forest leading-tight">Chứng nhận OCOP</p>
+              <p class="text-[11px] text-bark leading-tight">Bản Bùa Thượng, Gia Phù, Sơn La</p>
+            </div>
+          </div>
+
+          <!-- Thẻ nổi 3: Cung ứng Lẻ & Sỉ toàn quốc - Zalo 0904 836 616 -->
+          <a href="https://zalo.me/0904836616" target="_blank" rel="noopener" class="float-card-delay2 sm:absolute sm:-bottom-3 sm:right-2 mt-2.5 sm:mt-0 bg-forest text-cream border border-eco/40 rounded-2xl px-3.5 py-2.5 shadow-glass flex items-center gap-2.5 hover:bg-[#23491E] transition">
+            <div class="w-8 h-8 rounded-full bg-white text-forest flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5"><use href="#zalo"/></svg>
+            </div>
+            <div>
+              <p class="text-xs font-bold leading-tight">Cung ứng Lẻ &amp; Sỉ toàn quốc</p>
+              <p class="text-[11px] text-eco font-bold leading-tight">Zalo: 0904 836 616</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
-    <svg class="mountain" viewBox="0 0 1440 120" preserveAspectRatio="none" height="90" aria-hidden="true">
-      <path d="M0 120V70l120-40 100 35 140-55 150 70 130-50 160 60 150-60 140 45 150-40V120z" fill="#2D5A27" opacity=".16"/>
-      <path d="M0 120V92l160-30 140 28 170-45 160 40 170-30 180 38 150-35 110 25V120z" fill="#2D5A27" opacity=".28"/>
+
+    <svg class="mountain" viewBox="0 0 1440 120" preserveAspectRatio="none" height="84" aria-hidden="true">
+      <path d="M0 120V70l120-40 100 35 140-55 150 70 130-50 160 60 150-60 140 45 150-40V120z" fill="#2D5A27" opacity=".15"/>
+      <path d="M0 120V92l160-30 140 28 170-45 160 40 170-30 180 38 150-35 110 25V120z" fill="#2D5A27" opacity=".26"/>
     </svg>
   </div>
   <div class="thocam-thin"></div>
+
+  <!-- Dải Thống kê nhanh (Trust Bar) ngay dưới Hero -->
+  <div class="bg-forest text-cream border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-5 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 text-eco flex items-center justify-center shrink-0">
+          <i data-lucide="package-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <p class="text-lg sm:text-xl font-extrabold text-white leading-tight">20+ Sản phẩm</p>
+          <p class="text-xs text-cream/80">Tỏi Gia Phù &amp; Đặc sản Tây Bắc</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 text-eco flex items-center justify-center shrink-0">
+          <i data-lucide="sprout" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <p class="text-lg sm:text-xl font-extrabold text-white leading-tight">100% Hướng Eco</p>
+          <p class="text-xs text-cream/80">Canh tác sinh thái bền vững</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 text-eco flex items-center justify-center shrink-0">
+          <i data-lucide="award" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <p class="text-lg sm:text-xl font-extrabold text-white leading-tight">Đạt chuẩn OCOP</p>
+          <p class="text-xs text-cream/80">Minh bạch chất lượng địa phương</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-2xl bg-white/10 text-eco flex items-center justify-center shrink-0">
+          <i data-lucide="handshake" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <p class="text-lg sm:text-xl font-extrabold text-white leading-tight">Giá Sỉ tận gốc HTX</p>
+          <p class="text-xs text-cream/80">Chiết khấu tốt cho Đại lý &amp; Cửa hàng</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- 4 sản phẩm chủ lực -->
   <div class="max-w-7xl mx-auto px-4 py-14">
@@ -134,67 +330,104 @@
       <p class="mt-3 text-bark">Chọn quy cách, xem giá lẻ – giá sỉ rõ ràng và đặt mua ngay trên Shopee hoặc TikTok Shop.</p>
     </div>
     <div id="featuredGrid" class="mt-9 grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
-    <div class="text-center mt-8">
-      <button data-go="products" class="inline-flex items-center gap-2 text-forest font-bold border-b-2 border-forest pb-0.5 hover:text-thocam hover:border-thocam">
+    <div class="text-center mt-9">
+      <button data-go="products" class="inline-flex items-center gap-2 bg-paper hover:bg-forest hover:text-white text-forest font-bold px-6 py-3 rounded-full border border-forest/30 transition">
         Xem toàn bộ 20 sản phẩm <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </button>
     </div>
   </div>
 
-  <!-- Lý do chọn -->
-  <div class="bg-paper">
+  <!-- Lý do chọn: Bento Grid / Card có điểm nhấn thị giác (01-04) -->
+  <div class="bg-paper border-y border-[#E8DFD0]">
     <div class="max-w-7xl mx-auto px-4 py-14">
-      <h2 class="text-3xl font-extrabold text-ink text-center">Vì sao chọn Tây Bắc Eco?</h2>
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="text-forest font-bold tracking-widest text-xs uppercase">Giá trị cốt lõi</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-ink mt-2">Vì sao chọn Tây Bắc Eco?</h2>
+        <p class="mt-2 text-sm text-bark">Sự kết hợp giữa thổ nhưỡng vùng cao Sơn La, quy trình sinh thái và tâm huyết của bà con hợp tác xã.</p>
+      </div>
       <div class="mt-9 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="paper-card p-6 text-center">
-          <div class="w-14 h-14 mx-auto rounded-2xl bg-eco/15 text-forest flex items-center justify-center"><i data-lucide="mountain-snow" class="w-7 h-7"></i></div>
-          <h3 class="mt-4 font-bold text-ink text-lg" style="font-family:'Be Vietnam Pro'">Vùng đất Gia Phù</h3>
-          <p class="mt-2 text-sm leading-relaxed">Tỏi lớn lên ở vùng cao Sơn La, khí hậu mát lạnh, củ chắc và thơm nồng đặc trưng.</p>
+        <div class="paper-card p-6 relative overflow-hidden border-t-4 border-t-forest group">
+          <span class="pointer-events-none select-none absolute top-3 right-4 font-serif text-5xl font-extrabold text-forest/10 group-hover:text-forest/20 transition-colors">01</span>
+          <div class="w-14 h-14 rounded-2xl bg-eco/15 text-forest ring-4 ring-eco/10 flex items-center justify-center">
+            <i data-lucide="mountain-snow" class="w-7 h-7"></i>
+          </div>
+          <h3 class="mt-5 font-bold text-ink text-lg" style="font-family:'Be Vietnam Pro'">Vùng đất Gia Phù</h3>
+          <p class="mt-2 text-sm text-bark leading-relaxed">Tỏi lớn lên ở vùng cao Sơn La, khí hậu mát lạnh, củ chắc và thơm nồng đặc trưng.</p>
         </div>
-        <div class="paper-card p-6 text-center">
-          <div class="w-14 h-14 mx-auto rounded-2xl bg-eco/15 text-forest flex items-center justify-center"><i data-lucide="sprout" class="w-7 h-7"></i></div>
-          <h3 class="mt-4 font-bold text-ink text-lg" style="font-family:'Be Vietnam Pro'">Canh tác Eco</h3>
-          <p class="mt-2 text-sm leading-relaxed">Hướng tới canh tác sinh thái, không hóa chất độc hại, giữ đất sạch cho nhiều mùa vụ sau.</p>
+
+        <div class="paper-card p-6 relative overflow-hidden border-t-4 border-t-eco group">
+          <span class="pointer-events-none select-none absolute top-3 right-4 font-serif text-5xl font-extrabold text-eco/15 group-hover:text-eco/25 transition-colors">02</span>
+          <div class="w-14 h-14 rounded-2xl bg-eco/15 text-forest ring-4 ring-eco/10 flex items-center justify-center">
+            <i data-lucide="sprout" class="w-7 h-7"></i>
+          </div>
+          <h3 class="mt-5 font-bold text-ink text-lg" style="font-family:'Be Vietnam Pro'">Canh tác Eco</h3>
+          <p class="mt-2 text-sm text-bark leading-relaxed">Hướng tới canh tác sinh thái, không hóa chất độc hại, giữ đất sạch cho nhiều mùa vụ sau.</p>
         </div>
-        <div class="paper-card p-6 text-center">
-          <div class="w-14 h-14 mx-auto rounded-2xl bg-eco/15 text-forest flex items-center justify-center"><i data-lucide="badge-check" class="w-7 h-7"></i></div>
-          <h3 class="mt-4 font-bold text-ink text-lg" style="font-family:'Be Vietnam Pro'">Đạt chuẩn OCOP</h3>
-          <p class="mt-2 text-sm leading-relaxed">Sản phẩm đạt chứng nhận OCOP – Mỗi xã một sản phẩm, minh bạch về chất lượng.</p>
+
+        <div class="paper-card p-6 relative overflow-hidden border-t-4 border-t-thocam group">
+          <span class="pointer-events-none select-none absolute top-3 right-4 font-serif text-5xl font-extrabold text-thocam/12 group-hover:text-thocam/25 transition-colors">03</span>
+          <div class="w-14 h-14 rounded-2xl bg-thocam/15 text-thocam ring-4 ring-thocam/10 flex items-center justify-center">
+            <i data-lucide="badge-check" class="w-7 h-7"></i>
+          </div>
+          <h3 class="mt-5 font-bold text-ink text-lg" style="font-family:'Be Vietnam Pro'">Đạt chuẩn OCOP</h3>
+          <p class="mt-2 text-sm text-bark leading-relaxed">Sản phẩm đạt chứng nhận OCOP – Mỗi xã một sản phẩm, minh bạch về chất lượng.</p>
         </div>
-        <div class="paper-card p-6 text-center">
-          <div class="w-14 h-14 mx-auto rounded-2xl bg-eco/15 text-forest flex items-center justify-center"><i data-lucide="users-round" class="w-7 h-7"></i></div>
-          <h3 class="mt-4 font-bold text-ink text-lg" style="font-family:'Be Vietnam Pro'">Vì bà con thành viên</h3>
-          <p class="mt-2 text-sm leading-relaxed">Mỗi túi tỏi bán ra là thêm một đầu ra ổn định cho hộ nông dân thành viên HTX.</p>
+
+        <div class="paper-card p-6 relative overflow-hidden border-t-4 border-t-wood group">
+          <span class="pointer-events-none select-none absolute top-3 right-4 font-serif text-5xl font-extrabold text-wood/12 group-hover:text-wood/25 transition-colors">04</span>
+          <div class="w-14 h-14 rounded-2xl bg-wood/15 text-wood ring-4 ring-wood/10 flex items-center justify-center">
+            <i data-lucide="users-round" class="w-7 h-7"></i>
+          </div>
+          <h3 class="mt-5 font-bold text-ink text-lg" style="font-family:'Be Vietnam Pro'">Vì bà con thành viên</h3>
+          <p class="mt-2 text-sm text-bark leading-relaxed">Mỗi túi tỏi bán ra là thêm một đầu ra ổn định cho hộ nông dân thành viên HTX.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- OCOP huy hiệu + CTA sỉ -->
-  <div class="max-w-7xl mx-auto px-4 py-14 grid lg:grid-cols-2 gap-6">
+  <!-- OCOP huy hiệu huy chương vàng-đồng + CTA sỉ họa tiết núi rừng -->
+  <div class="max-w-7xl mx-auto px-4 py-14 grid lg:grid-cols-2 gap-6 items-stretch">
     <div class="paper-card p-7 flex flex-col sm:flex-row gap-6 items-center">
-      <div class="shrink-0 w-36 h-36 rounded-full border-4 border-double border-thocam bg-cream flex flex-col items-center justify-center text-center">
-        <span class="font-extrabold text-thocam text-3xl leading-none">OCOP</span>
-        <span class="flex gap-0.5 mt-2 text-thocam/40">
-          <i data-lucide="star" class="w-4 h-4"></i><i data-lucide="star" class="w-4 h-4"></i><i data-lucide="star" class="w-4 h-4"></i><i data-lucide="star" class="w-4 h-4"></i><i data-lucide="star" class="w-4 h-4"></i>
+      <div class="shrink-0 w-36 h-36 rounded-full ocop-medal flex flex-col items-center justify-center text-center relative">
+        <span class="text-[10px] font-extrabold uppercase tracking-widest text-wood">Chứng nhận</span>
+        <span class="font-extrabold text-thocam text-3xl leading-none mt-0.5 font-serif">OCOP</span>
+        <span class="flex gap-0.5 mt-2 text-thocam">
+          <i data-lucide="star" class="w-3.5 h-3.5 fill-current opacity-50"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 fill-current opacity-50"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 fill-current opacity-50"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 fill-current opacity-50"></i>
+          <i data-lucide="star" class="w-3.5 h-3.5 fill-current opacity-50"></i>
         </span>
-        <span class="text-[10px] font-semibold text-bark mt-1">[số sao – đang cập nhật]</span>
+        <span class="text-[10px] font-bold text-bark mt-1 px-2">[số sao – đang cập nhật]</span>
       </div>
       <div>
-        <h3 class="text-xl font-extrabold text-ink">Sản phẩm đạt chứng nhận OCOP</h3>
-        <p class="mt-2 text-sm leading-relaxed">Huy hiệu và số sao OCOP chính thức sẽ được cập nhật cùng ảnh giấy chứng nhận ngay khi HTX gửi bản gốc.</p>
-        <button data-go="certs" class="mt-4 text-forest font-bold text-sm flex items-center gap-1.5 hover:text-thocam">Xem chứng nhận &amp; thành tích <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+        <span class="inline-block text-xs font-bold text-thocam bg-thocam/10 px-2.5 py-1 rounded-full">Mỗi xã một sản phẩm · Tỉnh Sơn La</span>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-ink mt-2">Sản phẩm đạt chứng nhận OCOP</h3>
+        <p class="mt-2 text-sm text-bark leading-relaxed">Huy hiệu và số sao OCOP chính thức sẽ được cập nhật cùng ảnh giấy chứng nhận ngay khi HTX gửi bản gốc.</p>
+        <button data-go="certs" class="mt-4 text-forest font-bold text-sm inline-flex items-center gap-1.5 hover:text-thocam">
+          Xem chứng nhận &amp; thành tích <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
       </div>
     </div>
-    <div class="rounded-[18px] bg-forest text-cream p-7 relative overflow-hidden">
-      <div class="absolute -right-8 -bottom-8 opacity-10"><i data-lucide="store" class="w-48 h-48"></i></div>
-      <h3 class="text-2xl font-extrabold">Cửa hàng đặc sản, siêu thị, đại lý?</h3>
-      <p class="mt-2 text-cream/85 text-sm leading-relaxed max-w-md">Nhập sỉ trực tiếp từ HTX với giá ưu đãi, nguồn hàng ổn định theo mùa vụ và có thể truy xuất nguồn gốc.</p>
-      <div class="mt-5 flex flex-wrap gap-3 relative z-10">
-        <a href="https://zalo.me/0904836616" target="_blank" rel="noopener" class="bg-white text-forest font-bold px-5 py-3 rounded-full flex items-center gap-2 text-sm">
+
+    <div class="rounded-[18px] cta-pattern-bg text-cream p-7 relative overflow-hidden flex flex-col justify-between shadow-lg">
+      <svg class="absolute bottom-0 right-0 w-64 h-32 opacity-15 pointer-events-none" viewBox="0 0 260 120" fill="none">
+        <path d="M0 120L50 65L95 95L155 35L215 85L260 50V120H0Z" fill="#FAF7F2"/>
+      </svg>
+      <div class="relative z-10">
+        <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider bg-white/15 text-eco px-3 py-1 rounded-full">
+          <i data-lucide="store" class="w-3.5 h-3.5"></i> Hợp tác phân phối toàn quốc
+        </span>
+        <h3 class="text-2xl font-extrabold mt-3">Cửa hàng đặc sản, siêu thị, đại lý?</h3>
+        <p class="mt-2 text-cream/85 text-sm leading-relaxed max-w-md">Nhập sỉ trực tiếp từ HTX với giá ưu đãi, nguồn hàng ổn định theo mùa vụ và có thể truy xuất nguồn gốc.</p>
+      </div>
+      <div class="mt-6 flex flex-wrap gap-3 relative z-10">
+        <a href="https://zalo.me/0904836616" target="_blank" rel="noopener" class="bg-white text-forest font-bold px-5 py-3 rounded-full flex items-center gap-2 text-sm shadow hover:bg-paper transition">
           <svg class="w-5 h-5 text-eco"><use href="#zalo"/></svg> Nhận giá sỉ qua Zalo (0904836616)
         </a>
-        <button data-action="open-wholesale" class="border border-cream/60 font-semibold px-5 py-3 rounded-full text-sm hover:bg-white/10">Xem bảng giá sỉ</button>
+        <button data-action="open-wholesale" class="border border-cream/60 font-semibold px-5 py-3 rounded-full text-sm hover:bg-white/10 transition flex items-center gap-1.5">
+          <i data-lucide="table-2" class="w-4 h-4"></i> Xem bảng giá sỉ
+        </button>
       </div>
     </div>
   </div>
@@ -222,11 +455,11 @@
         <span class="draft-tag">[Nội dung đề xuất - Cần HTX xác nhận]</span>
         <h3 class="text-2xl font-bold text-ink mt-3">Sứ mệnh &amp; Tầm nhìn</h3>
         <div class="grid sm:grid-cols-2 gap-4 mt-4">
-          <div class="bg-paper rounded-xl p-4">
+          <div class="bg-paper rounded-xl p-5 border border-[#E5DAC8]">
             <div class="flex items-center gap-2 text-forest font-bold"><i data-lucide="target" class="w-5 h-5"></i> Sứ mệnh</div>
             <p class="text-sm mt-2 leading-relaxed">Nâng tầm cây tỏi bản địa và đặc sản Tây Bắc, tạo sinh kế bền vững cho hộ thành viên theo hướng sinh thái (Eco).</p>
           </div>
-          <div class="bg-paper rounded-xl p-4">
+          <div class="bg-paper rounded-xl p-5 border border-[#E5DAC8]">
             <div class="flex items-center gap-2 text-forest font-bold"><i data-lucide="telescope" class="w-5 h-5"></i> Tầm nhìn</div>
             <p class="text-sm mt-2 leading-relaxed">Trở thành thương hiệu tỏi và đặc sản Sơn La được tin dùng, hiện diện tại các cửa hàng đặc sản, siêu thị và sàn thương mại điện tử.</p>
           </div>
@@ -234,8 +467,9 @@
       </div>
     </div>
     <aside class="lg:col-span-2 space-y-5">
-      <div class="paper-card p-7 text-center">
-        <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-eco to-forest flex items-center justify-center text-white">
+      <div class="paper-card p-7 text-center relative overflow-hidden">
+        <div class="thocam-thin -mx-7 -mt-7 mb-6"></div>
+        <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-eco to-forest flex items-center justify-center text-white shadow-md ring-4 ring-eco/20">
           <i data-lucide="user-round" class="w-12 h-12"></i>
         </div>
         <p class="text-[11px] text-bark mt-3">Ảnh chân dung – đang cập nhật</p>
@@ -249,13 +483,13 @@
         <ul class="mt-3 space-y-3 text-sm">
           <li class="flex gap-3"><i data-lucide="building-2" class="w-5 h-5 text-forest shrink-0"></i><span><strong>Hợp tác xã Tây Bắc Eco</strong><br>Tên miền định hướng: Taybaceco.vn</span></li>
           <li class="flex gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-forest shrink-0"></i><span>Bản Bùa Thượng, xã Gia Phù, tỉnh Sơn La</span></li>
-          <li class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-forest shrink-0"></i><a href="tel:0904836616" class="hover:text-thocam">0904836616 (Hotline / Zalo)</a></li>
+          <li class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-forest shrink-0"></i><a href="tel:0904836616" class="font-semibold hover:text-thocam">0904836616 (Hotline / Zalo)</a></li>
           <li class="flex gap-3"><i data-lucide="mail" class="w-5 h-5 text-forest shrink-0"></i><a href="mailto:htxtaybaceco@gmail.com" class="hover:text-thocam break-all">htxtaybaceco@gmail.com</a></li>
         </ul>
       </div>
     </aside>
   </div>
-  <div class="bg-forest text-cream">
+  <div class="cta-pattern-bg text-cream">
     <div class="max-w-6xl mx-auto px-4 py-10 grid sm:grid-cols-3 gap-6 text-center">
       <div><i data-lucide="heart-handshake" class="w-9 h-9 mx-auto text-eco"></i><h4 class="font-bold mt-2">Gắn bó với bà con</h4><p class="text-sm text-cream/80 mt-1">Thu mua, tập huấn và đồng hành cùng hộ thành viên.</p></div>
       <div><i data-lucide="leaf" class="w-9 h-9 mx-auto text-eco"></i><h4 class="font-bold mt-2">Thân thiện thiên nhiên</h4><p class="text-sm text-cream/80 mt-1">Canh tác sinh thái, hạn chế hóa chất độc hại.</p></div>
@@ -274,23 +508,36 @@
     </div>
   </div>
   <div class="max-w-7xl mx-auto px-4 py-8">
-    <!-- chế độ giá -->
+    <!-- Chế độ giá + Thanh tìm kiếm nhanh + Nút bảng so sánh -->
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-      <div class="inline-flex bg-paper rounded-full p-1 border border-[#E3D8C5] self-start" role="tablist" aria-label="Chế độ xem giá">
+      <div class="inline-flex flex-wrap bg-paper rounded-full p-1 border border-[#E3D8C5] self-start" role="tablist" aria-label="Chế độ xem giá">
         <button id="modeRetail" data-mode="retail" class="px-5 py-2.5 rounded-full text-sm font-bold flex items-center gap-2" role="tab"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Giá bán lẻ</button>
         <button id="modeWholesale" data-mode="wholesale" class="px-5 py-2.5 rounded-full text-sm font-bold flex items-center gap-2" role="tab"><i data-lucide="store" class="w-4 h-4"></i> Bảng giá sỉ (Đại lý / Cửa hàng)</button>
       </div>
-      <button data-action="open-wholesale" class="self-start lg:self-auto flex items-center gap-2 text-forest font-bold text-sm border border-forest/40 rounded-full px-4 py-2.5 hover:bg-paper">
-        <i data-lucide="table-2" class="w-4 h-4"></i> So sánh Giá Lẻ vs Giá Sỉ toàn bộ sản phẩm
-      </button>
+
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-1 lg:max-w-xl lg:justify-end">
+        <!-- Ô tìm kiếm nhanh sản phẩm -->
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-4 h-4 text-bark/60 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+          <input id="productSearchInput" type="search" placeholder="Tìm sản phẩm: cô đơn, miến, mắc khén, chẳm chéo..." aria-label="Tìm kiếm sản phẩm theo tên" class="w-full rounded-full border border-[#D8CCB6] bg-white pl-10 pr-9 py-2.5 text-sm text-ink placeholder:text-bark/55 focus:border-forest focus:outline-none shadow-sm">
+          <button id="clearSearchBtn" data-action="clear-search" type="button" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-paper text-bark" aria-label="Xóa từ khóa">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <button data-action="open-wholesale" class="shrink-0 flex items-center justify-center gap-2 text-forest font-bold text-sm border border-forest/40 bg-white rounded-full px-4 py-2.5 hover:bg-paper transition shadow-sm">
+          <i data-lucide="table-2" class="w-4 h-4"></i> So sánh Giá Lẻ vs Giá Sỉ
+        </button>
+      </div>
     </div>
-    <!-- bộ lọc -->
+
+    <!-- Bộ lọc danh mục -->
     <div id="filterBar" class="mt-5 flex flex-wrap gap-2"></div>
     <p id="resultCount" class="mt-4 text-sm text-bark"></p>
     <div id="productGrid" class="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
     <div class="mt-8 paper-card p-5 text-sm flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
-      <span class="flex items-center gap-2"><i data-lucide="image" class="w-5 h-5 text-thocam"></i> Hình ảnh sản phẩm hiện là ảnh minh họa – HTX đang cập nhật ảnh chụp thực tế để thay thế.</span>
-      <span class="text-bark">Giá có thể thay đổi theo mùa vụ. Vui lòng liên hệ Zalo <strong>0904836616</strong> để xác nhận.</span>
+      <span class="flex items-center gap-2"><i data-lucide="camera" class="w-5 h-5 text-thocam shrink-0"></i> Hình ảnh sản phẩm hiện là ảnh minh họa – HTX đang cập nhật ảnh chụp thực tế để thay thế. Bấm vào từng sản phẩm để xem <strong>Chi tiết, Cách bảo quản &amp; Tem QR Truy xuất</strong>.</span>
+      <span class="text-bark shrink-0">Liên hệ Zalo <strong>0904836616</strong> để xác nhận giá theo vụ.</span>
     </div>
   </div>
 </section>
@@ -306,49 +553,62 @@
   </div>
 
   <div class="max-w-6xl mx-auto px-4 py-12">
-    <h3 class="text-2xl font-extrabold text-ink flex items-center gap-2"><i data-lucide="calendar-days" class="w-6 h-6 text-forest"></i> Lịch mùa vụ trong năm</h3>
-    <p class="text-sm text-bark mt-1">Tháng hiện tại được tô viền cam.</p>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div>
+        <h3 class="text-2xl font-extrabold text-ink flex items-center gap-2"><i data-lucide="calendar-days" class="w-6 h-6 text-forest"></i> Lịch mùa vụ 12 tháng trong năm</h3>
+        <p class="text-sm text-bark mt-1">Tháng hiện tại được đánh dấu nổi bật màu cam thổ cẩm.</p>
+      </div>
+      <div id="seasonStatusBadge"></div>
+    </div>
+
     <div class="mt-5 paper-card p-4 sm:p-6 overflow-x-auto">
       <div class="min-w-[640px]">
-        <div id="calHead" class="grid grid-cols-12 gap-1 text-center text-xs font-bold text-bark"></div>
-        <div id="calSeason" class="grid grid-cols-12 gap-1 mt-3"></div>
-        <p class="mt-1 text-sm font-semibold text-forest flex items-center gap-2"><i data-lucide="leaf" class="w-4 h-4"></i> Tỏi củ tươi / khô: Tháng 3 – Tháng 10</p>
-        <div id="calYear" class="grid grid-cols-12 gap-1 mt-4"></div>
-        <p class="mt-1 text-sm font-semibold text-wood flex items-center gap-2"><i data-lucide="package" class="w-4 h-4"></i> Miến tỏi đen, Rượu tỏi đen, Tỏi đen ngâm mật ong: Quanh năm</p>
+        <div id="calHead" class="grid grid-cols-12 gap-1.5 text-center text-xs font-bold text-bark"></div>
+        <div id="calSeason" class="grid grid-cols-12 gap-1.5 mt-3"></div>
+        <div class="mt-2 flex flex-wrap items-center justify-between gap-2">
+          <p class="text-sm font-bold text-forest flex items-center gap-2"><i data-lucide="leaf" class="w-4 h-4 text-eco"></i> Tỏi củ tươi / khô (Tỏi nhánh, Tỏi cô đơn): Tháng 3 – Tháng 10</p>
+          <span class="text-xs text-bark">Tháng 11 – Tháng 2: Làm đất, xuống giống &amp; chăm sóc vụ mới</span>
+        </div>
+        <div id="calYear" class="grid grid-cols-12 gap-1.5 mt-4"></div>
+        <p class="mt-2 text-sm font-bold text-wood flex items-center gap-2"><i data-lucide="package" class="w-4 h-4 text-thocam"></i> Miến tỏi đen, Rượu tỏi đen, Tỏi đen ngâm mật ong, Tỏi đen cô đơn: Sẵn hàng quanh năm</p>
       </div>
     </div>
   </div>
 
-  <div class="bg-paper">
+  <div class="bg-paper border-y border-[#E8DFD0]">
     <div class="max-w-6xl mx-auto px-4 py-12">
-      <div class="flex flex-wrap items-center gap-3">
-        <h3 class="text-2xl font-extrabold text-ink">6 bước quy trình Eco</h3>
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-forest">Chuẩn hóa canh tác &amp; Chế biến</p>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-ink mt-1">6 bước quy trình Eco</h3>
+        </div>
         <span class="draft-tag">[Nội dung đề xuất - Cần HTX xác nhận]</span>
       </div>
-      <div id="steps" class="mt-7 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      <div id="steps" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
   </div>
 
-  <div class="max-w-6xl mx-auto px-4 py-12 grid lg:grid-cols-2 gap-6 items-center">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid lg:grid-cols-2 gap-8 items-center">
     <div>
       <h3 class="text-2xl font-extrabold text-ink">Vùng trồng Gia Phù – Sơn La</h3>
       <span class="draft-tag mt-2">[Nội dung đề xuất - Cần HTX xác nhận]</span>
       <p class="mt-3 leading-relaxed">Bản Bùa Thượng nằm trên vùng cao Sơn La, nơi sương sớm và nhiệt độ mát lạnh giúp cây tỏi phát triển chậm, tích tụ nhiều tinh dầu hơn – tạo nên mùi thơm đậm và vị cay đặc trưng.</p>
-      <ul class="mt-4 space-y-2 text-sm">
-        <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-eco shrink-0"></i> Đất đồi thoát nước tốt, giàu mùn</li>
-        <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-eco shrink-0"></i> Ưu tiên phân hữu cơ, hạn chế thuốc hóa học</li>
-        <li class="flex gap-2"><i data-lucide="check-circle-2" class="w-5 h-5 text-eco shrink-0"></i> Hộ thành viên được tập huấn kỹ thuật định kỳ</li>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        <li class="flex gap-2.5"><i data-lucide="check-circle-2" class="w-5 h-5 text-eco shrink-0"></i> Đất đồi thoát nước tốt, giàu mùn hữu cơ tự nhiên</li>
+        <li class="flex gap-2.5"><i data-lucide="check-circle-2" class="w-5 h-5 text-eco shrink-0"></i> Ưu tiên phân hữu cơ, hạn chế thuốc hóa học</li>
+        <li class="flex gap-2.5"><i data-lucide="check-circle-2" class="w-5 h-5 text-eco shrink-0"></i> Hộ thành viên được tập huấn 07 bước kỹ thuật định kỳ</li>
       </ul>
     </div>
-    <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-eco/25 to-forest/30 aspect-[16/10] relative flex items-center justify-center">
+    <div class="rounded-2xl overflow-hidden bg-gradient-to-br from-eco/25 to-forest/30 aspect-[16/10] relative flex items-center justify-center shadow-md border border-[#E3D8C5]">
       <svg viewBox="0 0 400 250" class="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <rect width="400" height="250" fill="#DDEBCF"/>
+        <circle cx="330" cy="52" r="26" fill="#F8DDA4" opacity="0.8"/>
         <path d="M0 160l60-50 70 40 80-70 90 60 100-40v150H0z" fill="#9CC884"/>
         <path d="M0 200l80-35 90 30 100-45 130 40v60H0z" fill="#6BB34D"/>
         <path d="M0 232c70-22 140-22 210-8s130 6 190-8v34H0z" fill="#2D5A27"/>
         <g stroke="#2D5A27" stroke-width="2" opacity=".5"><path d="M20 215h360M10 227h380"/></g>
       </svg>
-      <span class="relative bg-white/90 rounded-full px-4 py-2 text-xs font-semibold text-bark flex items-center gap-2"><i data-lucide="image" class="w-4 h-4 text-thocam"></i> Ảnh minh họa – Đang cập nhật ảnh vùng trồng thực tế</span>
+      <span class="relative bg-white/95 rounded-full px-4 py-2 text-xs font-semibold text-bark flex items-center gap-2 shadow"><i data-lucide="camera" class="w-4 h-4 text-thocam"></i> Ảnh minh họa · Đang cập nhật ảnh vùng trồng thực tế</span>
     </div>
   </div>
 </section>
@@ -384,10 +644,15 @@
   <div class="max-w-6xl mx-auto px-4 py-12">
     <div class="grid lg:grid-cols-2 gap-6 items-stretch">
       <div class="paper-card p-8 text-center flex flex-col items-center justify-center">
-        <div class="w-44 h-44 rounded-full border-[6px] border-double border-thocam bg-cream flex flex-col items-center justify-center pulse-ring">
-          <span class="font-extrabold text-thocam text-4xl leading-none">OCOP</span>
-          <span class="flex gap-1 mt-3 text-thocam/40">
-            <i data-lucide="star" class="w-5 h-5"></i><i data-lucide="star" class="w-5 h-5"></i><i data-lucide="star" class="w-5 h-5"></i><i data-lucide="star" class="w-5 h-5"></i><i data-lucide="star" class="w-5 h-5"></i>
+        <div class="w-44 h-44 rounded-full ocop-medal flex flex-col items-center justify-center pulse-ring">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-wood">Chứng nhận</span>
+          <span class="font-extrabold text-thocam text-4xl leading-none mt-1 font-serif">OCOP</span>
+          <span class="flex gap-1 mt-3 text-thocam">
+            <i data-lucide="star" class="w-5 h-5 fill-current opacity-50"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current opacity-50"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current opacity-50"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current opacity-50"></i>
+            <i data-lucide="star" class="w-5 h-5 fill-current opacity-50"></i>
           </span>
         </div>
         <h3 class="text-xl font-extrabold text-ink mt-5">Sản phẩm đạt chứng nhận OCOP</h3>
@@ -406,9 +671,9 @@
     <h3 class="text-2xl font-extrabold text-ink mt-12">Cam kết của Tây Bắc Eco</h3>
     <span class="draft-tag mt-2">[Nội dung đề xuất - Cần HTX xác nhận]</span>
     <div class="mt-5 grid sm:grid-cols-3 gap-5">
-      <div class="paper-card p-6"><i data-lucide="flask-conical-off" class="w-9 h-9 text-eco"></i><h4 class="mt-3 font-bold text-ink">Canh tác Eco</h4><p class="text-sm mt-2 leading-relaxed">Cam kết canh tác không dùng hóa chất độc hại, bảo vệ đất, nước và sức khỏe người trồng.</p></div>
-      <div class="paper-card p-6"><i data-lucide="shield-check" class="w-9 h-9 text-eco"></i><h4 class="mt-3 font-bold text-ink">An toàn vệ sinh thực phẩm</h4><p class="text-sm mt-2 leading-relaxed">Chế biến, đóng gói trong điều kiện sạch sẽ, tuân thủ quy định an toàn vệ sinh thực phẩm.</p></div>
-      <div class="paper-card p-6"><i data-lucide="qr-code" class="w-9 h-9 text-eco"></i><h4 class="mt-3 font-bold text-ink">Minh bạch nguồn gốc</h4><p class="text-sm mt-2 leading-relaxed">Mỗi sản phẩm hướng tới gắn mã QR để người mua biết rõ vùng trồng và thời điểm thu hoạch.</p></div>
+      <div class="paper-card p-6 border-t-4 border-t-eco"><i data-lucide="flask-conical-off" class="w-9 h-9 text-eco"></i><h4 class="mt-3 font-bold text-ink">Canh tác Eco</h4><p class="text-sm mt-2 leading-relaxed">Cam kết canh tác không dùng hóa chất độc hại, bảo vệ đất, nước và sức khỏe người trồng.</p></div>
+      <div class="paper-card p-6 border-t-4 border-t-forest"><i data-lucide="shield-check" class="w-9 h-9 text-forest"></i><h4 class="mt-3 font-bold text-ink">An toàn vệ sinh thực phẩm</h4><p class="text-sm mt-2 leading-relaxed">Chế biến, đóng gói trong điều kiện sạch sẽ, tuân thủ quy định an toàn vệ sinh thực phẩm.</p></div>
+      <div class="paper-card p-6 border-t-4 border-t-thocam"><i data-lucide="qr-code" class="w-9 h-9 text-thocam"></i><h4 class="mt-3 font-bold text-ink">Minh bạch nguồn gốc</h4><p class="text-sm mt-2 leading-relaxed">Mỗi sản phẩm hướng tới gắn mã QR để người mua biết rõ vùng trồng và thời điểm thu hoạch.</p></div>
     </div>
     <h3 class="text-2xl font-extrabold text-ink mt-12">Cột mốc &amp; thành tích</h3>
     <div class="mt-5 paper-card p-6">
@@ -423,18 +688,18 @@
 
 <!-- ============ 7. DÀNH CHO BÀ CON THÀNH VIÊN ============ -->
 <section id="page-members" class="page" data-title="Dành cho bà con thành viên">
-  <div class="bg-forest text-cream">
+  <div class="cta-pattern-bg text-cream">
     <div class="max-w-5xl mx-auto px-4 py-12 text-center">
       <p class="text-eco font-bold tracking-widest text-xs uppercase">Góc của bà con</p>
       <h2 class="text-3xl sm:text-4xl font-extrabold mt-2">Dành cho bà con thành viên</h2>
-      <p class="mt-3 text-cream/85 max-w-2xl mx-auto">Lịch tập huấn, thông tin thu mua tỏi, video kỹ thuật và tài liệu cho bà con nông dân trong Hợp tác xã.</p>
+      <p class="mt-3 text-cream/85 max-w-2xl mx-auto">Lịch tập huấn, thông tin thu mua tỏi, trọn bộ 07 video kỹ thuật và tài liệu cho bà con nông dân trong Hợp tác xã.</p>
     </div>
     <div class="thocam-border"></div>
   </div>
   <div class="max-w-6xl mx-auto px-4 py-10 space-y-10">
-    <div class="paper-card p-4 flex flex-wrap items-center gap-3 bg-[#FFF8E1]">
-      <i data-lucide="phone-call" class="w-6 h-6 text-thocam"></i>
-      <p class="text-sm flex-1 min-w-[200px]"><strong>Cần hỏi gấp?</strong> Bà con gọi hoặc nhắn Zalo cho HTX: <a href="tel:0904836616" class="font-bold text-forest">0904836616</a></p>
+    <div class="paper-card p-5 flex flex-wrap items-center gap-3 bg-[#FFF8E1] border-[#F0D98C]">
+      <i data-lucide="phone-call" class="w-6 h-6 text-thocam shrink-0"></i>
+      <p class="text-base flex-1 min-w-[220px]"><strong>Cần hỏi gấp kỹ thuật hoặc lịch thu mua?</strong> Bà con gọi hoặc nhắn Zalo cho HTX: <a href="tel:0904836616" class="font-extrabold text-forest underline">0904836616</a></p>
       <span class="draft-tag">[Nội dung đề xuất - Cần HTX xác nhận]</span>
     </div>
 
@@ -442,9 +707,9 @@
       <div class="paper-card p-6">
         <h3 class="text-xl font-extrabold text-ink flex items-center gap-2"><i data-lucide="graduation-cap" class="w-6 h-6 text-forest"></i> Lịch tập huấn kỹ thuật</h3>
         <ul class="mt-4 divide-y divide-[#EDE4D5]">
-          <li class="py-3 flex gap-3"><div class="shrink-0 w-14 text-center bg-paper rounded-lg py-1"><span class="block text-[11px] text-bark">Ngày</span><span class="block font-extrabold text-forest text-sm">[sẽ báo]</span></div><div><p class="font-semibold text-ink">Chọn giống &amp; làm đất vụ mới</p><p class="text-sm">Địa điểm: nhà văn hóa bản Bùa Thượng</p></div></li>
-          <li class="py-3 flex gap-3"><div class="shrink-0 w-14 text-center bg-paper rounded-lg py-1"><span class="block text-[11px] text-bark">Ngày</span><span class="block font-extrabold text-forest text-sm">[sẽ báo]</span></div><div><p class="font-semibold text-ink">Chăm sóc, phòng bệnh cho tỏi theo hướng Eco</p><p class="text-sm">Hình thức: thực hành ngoài ruộng</p></div></li>
-          <li class="py-3 flex gap-3"><div class="shrink-0 w-14 text-center bg-paper rounded-lg py-1"><span class="block text-[11px] text-bark">Ngày</span><span class="block font-extrabold text-forest text-sm">[sẽ báo]</span></div><div><p class="font-semibold text-ink">Thu hoạch, phơi sấy &amp; bảo quản</p><p class="text-sm">Hướng dẫn tiêu chuẩn thu mua của HTX</p></div></li>
+          <li class="py-3.5 flex gap-3"><div class="shrink-0 w-16 text-center bg-paper rounded-xl py-1.5"><span class="block text-[11px] text-bark">Ngày</span><span class="block font-extrabold text-forest text-sm">[sẽ báo]</span></div><div><p class="font-bold text-ink">Chọn giống &amp; làm đất vụ mới</p><p class="text-sm text-bark">Địa điểm: nhà văn hóa bản Bùa Thượng</p></div></li>
+          <li class="py-3.5 flex gap-3"><div class="shrink-0 w-16 text-center bg-paper rounded-xl py-1.5"><span class="block text-[11px] text-bark">Ngày</span><span class="block font-extrabold text-forest text-sm">[sẽ báo]</span></div><div><p class="font-bold text-ink">Chăm sóc, phòng bệnh cho tỏi theo hướng Eco</p><p class="text-sm text-bark">Hình thức: thực hành ngoài ruộng</p></div></li>
+          <li class="py-3.5 flex gap-3"><div class="shrink-0 w-16 text-center bg-paper rounded-xl py-1.5"><span class="block text-[11px] text-bark">Ngày</span><span class="block font-extrabold text-forest text-sm">[sẽ báo]</span></div><div><p class="font-bold text-ink">Thu hoạch, phơi sấy &amp; bảo quản</p><p class="text-sm text-bark">Hướng dẫn tiêu chuẩn thu mua của HTX</p></div></li>
         </ul>
         <p class="mt-3 text-xs text-bark">Ngày giờ cụ thể sẽ được HTX thông báo qua Zalo nhóm bà con.</p>
       </div>
@@ -461,12 +726,15 @@
     </div>
 
     <div>
-      <h3 class="text-xl font-extrabold text-ink flex items-center gap-2"><i data-lucide="clapperboard" class="w-6 h-6 text-forest"></i> Góc video hướng dẫn kỹ thuật canh tác tỏi Eco</h3>
-      <div id="memberVideos" class="mt-4 grid sm:grid-cols-3 gap-5"></div>
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <h3 class="text-xl sm:text-2xl font-extrabold text-ink flex items-center gap-2"><i data-lucide="clapperboard" class="w-6 h-6 text-forest"></i> 07 Video kỹ thuật trồng tỏi Eco theo lộ trình HTX</h3>
+        <span class="text-xs font-bold text-forest bg-eco/15 px-3 py-1 rounded-full">7 bài học thực hành</span>
+      </div>
+      <div id="memberVideos" class="mt-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
     </div>
 
     <div>
-      <h3 class="text-xl font-extrabold text-ink flex items-center gap-2"><i data-lucide="download" class="w-6 h-6 text-forest"></i> Tải tài liệu kỹ thuật</h3>
+      <h3 class="text-xl sm:text-2xl font-extrabold text-ink flex items-center gap-2"><i data-lucide="download" class="w-6 h-6 text-forest"></i> Tải tài liệu kỹ thuật</h3>
       <div id="docList" class="mt-4 grid sm:grid-cols-2 gap-4"></div>
     </div>
   </div>
@@ -571,6 +839,7 @@
       <h4 class="font-bold">Liên hệ</h4>
       <ul class="mt-3 space-y-2 text-sm text-cream/85">
         <li>Bản Bùa Thượng, xã Gia Phù, tỉnh Sơn La</li>
+        <li>Người đại diện: Lại Thanh Phương</li>
         <li>Hotline / Zalo: <a href="tel:0904836616" class="font-semibold hover:text-eco">0904836616</a></li>
         <li><a href="mailto:htxtaybaceco@gmail.com" class="hover:text-eco break-all">htxtaybaceco@gmail.com</a></li>
         <li>Taybaceco.vn</li>
@@ -591,7 +860,7 @@
 </footer>
 
 <!-- Nút nổi -->
-<div id="fab" class="fixed right-3 sm:right-5 bottom-5 z-[60] flex flex-col gap-3">
+<div class="fixed right-3 sm:right-5 bottom-5 z-[60] flex flex-col gap-3 no-print">
   <a href="https://zalo.me/0904836616" target="_blank" rel="noopener" aria-label="Chat Zalo 0904836616" class="w-14 h-14 rounded-full bg-[#0068FF] text-white shadow-xl flex items-center justify-center hover:scale-105 transition">
     <svg class="w-8 h-8"><use href="#zalo"/></svg>
   </a>
@@ -600,15 +869,35 @@
   </a>
 </div>
 
-<!-- Modal bảng giá sỉ -->
+<!-- Modal Xem nhanh / Chi tiết sản phẩm & QR Truy xuất nguồn gốc -->
+<div id="productModal" class="modal-back no-print" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+  <div class="bg-cream rounded-2xl w-full max-w-3xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden border border-[#E3D8C5]">
+    <div class="flex items-center justify-between gap-3 px-5 py-4 border-b border-[#E3D8C5] bg-white">
+      <div class="flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-5 h-5 text-eco"></i>
+        <h3 id="pmTitle" class="text-lg font-extrabold text-ink" style="font-family:'Be Vietnam Pro'">Chi tiết sản phẩm &amp; Truy xuất nguồn gốc</h3>
+      </div>
+      <button data-action="close-product" class="p-2 rounded-lg hover:bg-paper" aria-label="Đóng"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    <div id="productModalBody" class="overflow-y-auto p-5 sm:p-6 flex-1"></div>
+  </div>
+</div>
+
+<!-- Modal bảng giá sỉ (Hỗ trợ In / Lưu PDF cho Hội chợ OCOP) -->
 <div id="wsModal" class="modal-back" role="dialog" aria-modal="true" aria-labelledby="wsTitle">
   <div class="bg-cream rounded-2xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
-    <div class="flex items-start justify-between gap-3 p-5 border-b border-[#E3D8C5] bg-white">
+    <div class="flex flex-wrap items-start justify-between gap-3 p-5 border-b border-[#E3D8C5] bg-white">
       <div>
-        <h3 id="wsTitle" class="text-xl font-extrabold text-ink">Bảng giá Lẻ vs Giá Sỉ</h3>
-        <p class="text-sm text-bark mt-1">Dành cho cửa hàng đặc sản, siêu thị, đại lý. Giá có thể thay đổi theo vụ.</p>
+        <p class="text-xs font-extrabold uppercase tracking-wider text-forest">Hợp tác xã Tây Bắc Eco · Bản Bùa Thượng, Gia Phù, Sơn La</p>
+        <h3 id="wsTitle" class="text-xl font-extrabold text-ink mt-0.5">Bảng báo giá Lẻ vs Giá Sỉ (Đại lý / Cửa hàng)</h3>
+        <p class="text-xs sm:text-sm text-bark mt-1">Người đại diện: <strong>Lại Thanh Phương</strong> (Giám đốc) · Hotline/Zalo: <strong>0904 836 616</strong> · Email: htxtaybaceco@gmail.com</p>
       </div>
-      <button data-action="close-wholesale" class="p-2 rounded-lg hover:bg-paper" aria-label="Đóng"><i data-lucide="x" class="w-5 h-5"></i></button>
+      <div class="flex items-center gap-2 no-print">
+        <button data-action="print-wholesale" class="flex items-center gap-1.5 bg-paper hover:bg-forest hover:text-white text-forest font-bold text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-forest/30 transition">
+          <i data-lucide="printer" class="w-4 h-4"></i> In / Lưu PDF Bảng báo giá
+        </button>
+        <button data-action="close-wholesale" class="p-2 rounded-lg hover:bg-paper" aria-label="Đóng"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
     </div>
     <div class="overflow-auto p-5 flex-1">
       <div class="overflow-x-auto rounded-xl border border-[#E3D8C5] bg-white">
@@ -617,17 +906,24 @@
           <tbody id="wsBody"></tbody>
         </table>
       </div>
-      <h4 class="font-bold text-ink mt-6">Sản phẩm báo giá qua Zalo</h4>
-      <p id="wsContact" class="text-sm mt-2 leading-relaxed"></p>
+      <div class="mt-5 bg-white rounded-xl p-4 border border-[#E3D8C5]">
+        <h4 class="font-bold text-ink text-sm">Danh mục sản phẩm báo giá trực tiếp theo vụ qua Zalo (0904836616):</h4>
+        <p id="wsContact" class="text-sm mt-1.5 leading-relaxed text-bark"></p>
+      </div>
     </div>
-    <div class="p-5 border-t border-[#E3D8C5] bg-white flex flex-wrap gap-3 justify-between items-center">
-      <span class="text-sm text-bark">Cần báo giá số lượng lớn? Liên hệ trực tiếp HTX.</span>
-      <a href="https://zalo.me/0904836616" target="_blank" rel="noopener" class="btn-primary font-bold px-5 py-3 rounded-full text-sm flex items-center gap-2"><svg class="w-5 h-5"><use href="#zalo"/></svg> Nhận giá sỉ qua Zalo (0904836616)</a>
+    <div class="p-5 border-t border-[#E3D8C5] bg-white flex flex-wrap gap-3 justify-between items-center no-print">
+      <span class="text-sm text-bark">Cần báo giá số lượng lớn hoặc mang tới Hội chợ OCOP tháng 11/2026?</span>
+      <div class="flex flex-wrap gap-2">
+        <button data-action="print-wholesale" class="border border-forest text-forest font-bold px-4 py-2.5 rounded-full text-sm flex items-center gap-1.5 hover:bg-paper">
+          <i data-lucide="printer" class="w-4 h-4"></i> In báo giá
+        </button>
+        <a href="https://zalo.me/0904836616" target="_blank" rel="noopener" class="btn-primary font-bold px-5 py-2.5 rounded-full text-sm flex items-center gap-2"><svg class="w-5 h-5"><use href="#zalo"/></svg> Nhận giá sỉ qua Zalo (0904836616)</a>
+      </div>
     </div>
   </div>
 </div>
 
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="toast" class="toast no-print" role="status" aria-live="polite"></div>
 
 <!-- Mã JavaScript (thứ tự tải quan trọng) -->
 <script src="js/config.js"></script>

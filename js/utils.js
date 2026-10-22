@@ -3,7 +3,7 @@
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const fmt = n => n.toLocaleString('vi-VN') + ' đ';
-const state = { page: 'home', filter: 'all', mode: 'retail', sel: {}, ntab: 'all' };
+const state = { page: 'home', filter: 'all', mode: 'retail', sel: {}, ntab: 'all', q: '' };
 
 function toast(msg) {
   const t = $('#toast');
